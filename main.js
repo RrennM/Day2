@@ -1,13 +1,26 @@
-var hello = "hello";
-console.log(hello);
-
+var userString = "";
 var reversed = "";
 
-for (var i = hello.length - 1; i >= 0; i--) {
-	reversed += hello[i];
-}
-console.log(reversed);
 
-// i = 5 - 1 = 4
-// 4, 3, 2, 1, 0
-// o, l, l, e, h
+// identify  the submit button and run a function when a user clicks 
+// to reverse the given string
+var uStrBtn = document.getElementById("uStrBtn");
+uStrBtn.addEventListener("click", function() {
+
+	// get the value from the text input
+	userString = document.getElementById("userString").value;
+
+	// run a loop to reverse the string
+	for (var i = userString.length - 1; i >= 0; i--) {
+		reversed += userString[i];
+	}
+
+	// print the forward and backward strings
+	document.getElementById("forWord").innerHTML = userString;
+	document.getElementById("backWord").innerHTML = reversed;
+
+	// reset the variables and input
+	userString = "";
+	reversed = "";
+	document.getElementById("userString").value = "";
+})
